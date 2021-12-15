@@ -1,4 +1,4 @@
-# ws
+# WebSockets服务器
 为etcpack打包工具提供的WebSockets服务器。
 
 <p>
@@ -12,6 +12,22 @@
 
 ## Issues
 使用的时候遇到任何问题或有好的建议，请点击进入[issue](https://github.com/etcpack/ws/issues)！
+
+## How to use?
+
+```
+npm install --save @etcpack/ws
+```
+
+安装好了以后，然后引入后就可以使用了：
+
+```js
+import WS from '@etcpack/ws';
+
+WS({
+    port:number,// 端口号，可选，默认8080
+});
+```
 
 开源协议
 ---------------------------------------
