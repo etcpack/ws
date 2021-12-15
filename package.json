@@ -1,0 +1,24 @@
+{
+  "name": "@etcpack/ws",
+  "version": "0.1.0-alpha.0",
+  "description": "为etcpack打包工具提供的WebSockets服务器。",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/etcpack/ws.git"
+  },
+  "keywords": [
+    "etcpack",
+    "ws"
+  ],
+  "author": "你好2007",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/etcpack/ws/issues"
+  },
+  "homepage": "https://github.com/etcpack/ws#readme",
+  "dependencies": {
+    "@hai2007/nodejs": "^2.1.0",
+    "@hai2007/tool": "^1.0.0"
+  }
+}
