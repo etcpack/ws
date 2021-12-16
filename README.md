@@ -23,7 +23,17 @@ npm install --save @etcpack/ws
 import WS from '@etcpack/ws';
 
 WS({
-    port:number,// 端口号，可选，默认8080
+
+    port:number,// 可选，服务器端口号，比如：8080
+
+    contentBase:string,// 可选，服务器根路径，比如：'./'
+
+    handler:function(request, response){ // 可选，用于拦截请求的自定义处理方法
+        // 如果返回true，表示当前请求自定义处理
+    },
+
+    suffix:Array, // 可选，用于设置缺省后缀，比如：['.js', '.ts']
+
 });
 ```
 

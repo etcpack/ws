@@ -1,6 +1,6 @@
 {
   "name": "@etcpack/ws",
-  "version": "0.1.0-alpha.0",
+  "version": "0.1.0",
   "description": "为etcpack打包工具提供的WebSockets服务器。",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,7 @@
   "homepage": "https://github.com/etcpack/ws#readme",
   "dependencies": {
     "@hai2007/nodejs": "^2.1.0",
-    "@hai2007/tool": "^1.0.0"
+    "@hai2007/tool": "^1.0.0",
+    "watch": "^1.0.2"
   }
 }

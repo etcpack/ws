@@ -1,6 +1,7 @@
 const net = require('net');
 const nodejs = require('@hai2007/nodejs');
 const crypto = require('crypto');
+const watch = require('watch');
 
 const headersToJSON = require('./tool/headersToJSON');
 const decodeWsFrame = require('./tool/decodeWsFrame');
@@ -51,9 +52,9 @@ module.exports = function (config) {
                 socket.write(header)  // 返回HTTP头，告知客户端校验结果，HTTP状态码101表示切换协议：https://httpstatuses.com/101。
                 // 若客户端校验结果正确，在控制台的Network模块可以看到HTTP请求的状态码变为101 Switching Protocols，同时客户端的ws.onopen事件被触发。
 
-                setTimeout(() => {
-                    socket.write(encodeWsFrame({ info: "一个数据" }));
-                }, 2000);
+                watch.watchTree(contentBase, () => {
+                    socket.write(encodeWsFrame({ payloadData: "可以刷新页面了" }));
+                });
 
             }
 
