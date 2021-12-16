@@ -15,7 +15,17 @@
 
     <script>
 
-        const ws = new WebSocket('ws://localhost:20000');
+        const ws = new WebSocket('ws://localhost:20001/refresh-page');
+
+        // 连接成功
+        ws.addEventListener('open', function (event) {
+            ws.send('服务器，你好呀！');
+        });
+
+        // 监听来自服务器的数据
+        ws.addEventListener('message', function (event) {
+            console.log('来自ws服务器的数据：', event.data);
+        });
 
     </script>
 </body>

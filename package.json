@@ -3,6 +3,10 @@
   "version": "0.1.0-alpha.0",
   "description": "为etcpack打包工具提供的WebSockets服务器。",
   "main": "index.js",
+  "scripts": {
+    "test": "node ./test/index.spec.js",
+    "debug": "echo 'chrome://inspect/#devices' && node --inspect-brk ./test/index.spec.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/etcpack/ws.git"
