@@ -37,6 +37,28 @@ WS({
 });
 ```
 
+当然，你可能需要监听代码改变后自动刷新页面，那么，请在```index.html```中添加类似下面的代码：
+
+```js
+var ws = new WebSocket('ws://localhost:20001/refresh-page');
+
+// 连接成功
+ws.addEventListener('open', function (event) {
+    ws.send('服务器，你好呀！');
+});
+
+// 监听来自服务器的数据
+ws.addEventListener('message', function (event) {
+
+    // 如果把该方法的参数设置为 true，那么无论文档的最后修改日期是什么，
+    // 它都会绕过缓存，从服务器上重新下载该文档
+    window.location.reload(true);
+
+});
+```
+
+具体的你可以参考EtcPack中的实现：  https://github.com/etcpack/etcpack/blob/master/bin/client/static.js
+
 ## How to debug?
 
 命令行执行下面命令：
