@@ -17,7 +17,6 @@
     <script>
 
         const ws = new WebSocket('ws://localhost:20001/refresh-page');
-        let flag = false;
 
         // 连接成功
         ws.addEventListener('open', function (event) {
@@ -26,7 +25,6 @@
 
         // 监听来自服务器的数据
         ws.addEventListener('message', function (event) {
-            if (!flag) { flag = true; return; }
 
             console.log('来自ws服务器的数据：', event.data);
 

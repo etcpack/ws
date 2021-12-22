@@ -56,11 +56,15 @@ module.exports = function (config) {
                 socket.write(header)  // 返回HTTP头，告知客户端校验结果，HTTP状态码101表示切换协议：https://httpstatuses.com/101。
                 // 若客户端校验结果正确，在控制台的Network模块可以看到HTTP请求的状态码变为101 Switching Protocols，同时客户端的ws.onopen事件被触发。
 
+                let flag = false;
                 watch.watchTree(contentBase, {
                     interval: 1,
                     ignoreDirectoryPattern: /node_modules/
                 }, () => {
+                    if (!flag) { flag = true; return; }
+
                     socket.write(encodeWsFrame({ payloadData: "可以刷新页面了" }));
+                    watch.unwatchTree(contentBase);
                 });
 
             }
