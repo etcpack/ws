@@ -1,5 +1,5 @@
-# WebSockets服务器
-为etcpack打包工具提供的WebSockets服务器。
+# WebSocket服务器
+为etcpack打包工具提供的WebSocket服务器。
 
 <p>
   <a href="https://hai2007.gitee.io/npm-downloads?interval=7&packages=@etcpack/ws"><img src="https://img.shields.io/npm/dm/@etcpack/ws.svg" alt="downloads"></a>
@@ -20,7 +20,7 @@ npm install --save @etcpack/ws
 安装好了以后，然后引入后就可以使用了：
 
 ```js
-import WS from '@etcpack/ws';
+const WS = require('@etcpack/ws');
 
 WS({
 
