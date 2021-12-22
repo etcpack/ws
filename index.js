@@ -22,6 +22,10 @@ module.exports = function (config) {
 
     const server = net.createServer(socket => {
 
+        socket.on('error', (error) => {
+            // console.log('Connection error:', error.message);
+        });
+
         socket.once('data', buffer => {
 
             // 把请求头变成容易操作的json
@@ -52,7 +56,10 @@ module.exports = function (config) {
                 socket.write(header)  // 返回HTTP头，告知客户端校验结果，HTTP状态码101表示切换协议：https://httpstatuses.com/101。
                 // 若客户端校验结果正确，在控制台的Network模块可以看到HTTP请求的状态码变为101 Switching Protocols，同时客户端的ws.onopen事件被触发。
 
-                watch.watchTree(contentBase, () => {
+                watch.watchTree(contentBase, {
+                    interval: 1,
+                    ignoreDirectoryPattern: /node_modules/
+                }, () => {
                     socket.write(encodeWsFrame({ payloadData: "可以刷新页面了" }));
                 });
 
@@ -62,6 +69,7 @@ module.exports = function (config) {
             // 普通的由http服务器提供支持
             else {
                 socket.end();
+
             }
         });
     });
